@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TIME ON ME — Capturing Your Moments</title>
+  <meta name="description" content="TIME ON ME Photography — Premium photography services for weddings, events, corporate shoots, and more. Capturing your moments." />
+  <meta name="author" content="Sadiq" />
+  <meta name="developer" content="Sadiq" />
+  <meta name="designer" content="Sadiq - Designed by Sadiq" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="shortcut icon" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body data-designer="Sadiq" data-developer="Sadiq">
+
+  <!-- 
+  ============================================================
+    TIME ON ME — Photography Web Application
+    Designed by Sadiq | Developed by Sadiq
+    All rights reserved © 2026
+  ============================================================ 
+  -->
+  <div id="designed-by-sadiq" data-designer="Sadiq" data-developer="Sadiq" style="display:none;" aria-hidden="true">Designed by Sadiq - Developed by Sadiq</div>
+
+  <!-- Global SVG distortion filter for liquid glass -->
+  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <defs>
+      <filter id="lg-distort" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.004 0.008" numOctaves="1" result="turbulence"/>
+        <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="35" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Noise overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- 3D Canvas -->
+  <canvas id="hero-canvas"></canvas>
+
+  <!-- ═══════════════════ NAVBAR ═══════════════════ -->
+  <nav class="navbar" id="main-nav">
+    <a href="#hero-section" class="nav-logo" aria-label="TIME ON ME Home">
+      <img src="/logo-dark.png" alt="TIME ON ME Photography" class="nav-logo-img" />
+    </a>
+    <div class="nav-links">
+      <a href="#hero-section">Home</a>
+      <a href="#services-section">Services</a>
+      <a href="#pricing-section">Pricing</a>
+      <a href="#how-section">Process</a>
+      <a href="#site-footer">Contact</a>
+    </div>
+    <button class="book-btn" id="nav-book-btn">Book a Shoot →</button>
+  </nav>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section id="hero-section" class="hero">
+
+    <!-- Trust badge -->
+    <div id="ph-badge" class="trust-badge">
+      <div class="trust-stars">★★★★★</div>
+      <div class="trust-text">
+        <span class="trust-title">Trusted by 500+ Clients</span>
+        <span class="trust-sub">Google Rating 4.9</span>
+      </div>
+    </div>
+
+    <!-- Portfolio Showcase Card -->
+    <div id="event-card" class="event-card">
+      <div class="ec-bend"></div>
+      <div class="ec-face"></div>
+      <div class="ec-edge"></div>
+      <div class="ec-content">
+        <div class="ec-photo">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=560&q=80" alt="Wedding photography by Artsy 60" />
+          <div class="ec-photo-overlay"></div>
+          <div class="ec-photo-pills">
+            <span class="ec-pill ec-pill-gold">★ Featured Work</span>
+          </div>
+          <div class="ec-photo-info">
+            <h3 class="ec-photo-title">Royal Wedding Story</h3>
+            <span class="ec-photo-date">Shot Dec 15, 2025</span>
+          </div>
+        </div>
+        <div class="ec-organizer">
+          <div class="ec-org-left">
+            <div class="org-av grad-gold"></div>
+            <div class="ec-org-info">
+              <span class="ec-org-name">Priya & Arjun</span>
+              <span class="ec-org-label">clients</span>
+            </div>
+          </div>
+          <div class="ec-org-right">
+            <div class="mini-av grad-1"></div>
+            <div class="mini-av grad-2"></div>
+            <div class="mini-av grad-3"></div>
+            <span class="ec-plus">+5</span>
+          </div>
+        </div>
+        <div class="ec-venue">
+          <span class="ec-venue-name">The Leela Palace</span>
+          <span class="ec-venue-addr">New Delhi, India</span>
+        </div>
+        <div class="ec-actions">
+          <button class="ec-btn ec-btn-ghost">View Gallery</button>
+          <button class="ec-btn ec-btn-fill">Book Similar</button>
+        </div>
+        <span class="ec-free">✓ Premium Package</span>
+      </div>
+    </div>
+
+    <!-- Hero Text -->
+    <div id="hero-text" class="hero-text">
+      <span class="eyebrow">PREMIUM PHOTOGRAPHY SERVICES</span>
+      <h1 class="hero-headline">
+        <span class="hl-line">CAPTURE</span>
+        <span class="hl-line">YOUR PERFECT</span>
+        <span class="hl-line">MOMENTS</span>
+      </h1>
+      <span class="hero-tagline">SHOOT • EDIT • DELIVER FASTER</span>
+      <div class="hero-cta-row">
+        <button class="cta-primary">Book a Shoot →</button>
+        <button class="cta-ghost">View Our Work</button>
+      </div>
+    </div>
+
+    <!-- Signature SVG -->
+    <div id="sig-wrap" class="sig-wrap">
+      <svg viewBox="0 0 160 80" width="140" height="70" fill="none" stroke="#252106" stroke-width="1.3" stroke-linecap="round">
+        <path class="sp1" d="M10 60 Q30 10, 50 50 T90 40"/>
+        <path class="sp2" d="M50 50 Q70 20, 100 55"/>
+        <path class="sp3" d="M95 55 Q120 25, 150 50"/>
+      </svg>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span class="scroll-text">scroll</span>
+    </div>
+
+    <!-- Drag hint -->
+    <div class="drag-hint">↔ drag to spin</div>
+
+    <!-- Nav arrow -->
+    <button id="nav-arrow" class="nav-arrow">›</button>
+  </section>
+
+  <!-- ═══════════════════ SERVICES ═══════════════════ -->
+  <section id="services-section" class="services-section">
+    <div class="section-header">
+      <span class="eyebrow">WHAT WE DO</span>
+      <h2 class="section-headline">OUR<br/>SERVICES</h2>
+      <p class="section-body">From intimate ceremonies to grand celebrations, we craft visual stories that last a lifetime.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" style="--delay:0">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" alt="Wedding Photography" loading="lazy" />
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <span class="service-tag">01</span>
+          <h3 class="service-name">Wedding<br/>Photography</h3>
+          <p class="service-desc">Full-day coverage, drone shots, candid & posed moments captured beautifully.</p>
+          <span class="service-link">Explore →</span>
+        </div>
+      </div>
+      <div class="service-card" style="--delay:1">
+        <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=600&q=80" alt="Pre-Wedding Shoots" loading="lazy" />
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <span class="service-tag">02</span>
+          <h3 class="service-name">Pre-Wedding<br/>Shoots</h3>
+          <p class="service-desc">Destination shoots with cinematic storytelling at stunning locations.</p>
+          <span class="service-link">Explore →</span>
+        </div>
+      </div>
+      <div class="service-card" style="--delay:2">
+        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=600&q=80" alt="Birthday & Events" loading="lazy" />
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <span class="service-tag">03</span>
+          <h3 class="service-name">Birthday<br/>& Events</h3>
+          <p class="service-desc">Every celebration deserves to be remembered — we make sure it is.</p>
+          <span class="service-link">Explore →</span>
+        </div>
+      </div>
+      <div class="service-card" style="--delay:3">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80" alt="Corporate & Brand" loading="lazy" />
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <span class="service-tag">04</span>
+          <h3 class="service-name">Corporate<br/>& Brand</h3>
+          <p class="service-desc">Professional headshots, office events, and brand campaigns.</p>
+          <span class="service-link">Explore →</span>
+        </div>
+      </div>
+      <div class="service-card" style="--delay:4">
+        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80" alt="Product Photography" loading="lazy" />
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <span class="service-tag">05</span>
+          <h3 class="service-name">Product<br/>Photography</h3>
+          <p class="service-desc">E-commerce ready, studio quality images that sell.</p>
+          <span class="service-link">Explore →</span>
+        </div>
+      </div>
+      <div class="service-card" style="--delay:5">
+        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=600&q=80" alt="Fashion & Portfolio" loading="lazy" />
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <span class="service-tag">06</span>
+          <h3 class="service-name">Fashion<br/>& Portfolio</h3>
+          <p class="service-desc">Model portfolios and fashion editorials that make an impact.</p>
+          <span class="service-link">Explore →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
+  <section id="how-section" class="how-section">
+    <div class="how-content">
+      <span class="eyebrow">OUR PROCESS</span>
+      <h2 class="section-headline">HOW WE<br/>WORK</h2>
+      <div class="steps">
+        <div class="step-item glass-dark-card">
+          <span class="step-num">01</span>
+          <div class="step-info">
+            <h3 class="step-title">Book Your Shoot</h3>
+            <p class="step-desc">Choose your package, pick a date, and tell us about your vision. We handle the rest.</p>
+          </div>
+          <span class="step-arrow">→</span>
+        </div>
+        <div class="step-item glass-dark-card">
+          <span class="step-num">02</span>
+          <div class="step-info">
+            <h3 class="step-title">Plan Together</h3>
+            <p class="step-desc">Our creative team plans every detail — locations, themes, mood boards, and timeline.</p>
+          </div>
+          <span class="step-arrow">→</span>
+        </div>
+        <div class="step-item glass-dark-card">
+          <span class="step-num">03</span>
+          <div class="step-info">
+            <h3 class="step-title">The Shoot Day</h3>
+            <p class="step-desc">We arrive early, set up, and capture every emotion with artistic precision.</p>
+          </div>
+          <span class="step-arrow">→</span>
+        </div>
+        <div class="step-item glass-dark-card">
+          <span class="step-num">04</span>
+          <div class="step-info">
+            <h3 class="step-title">Edit & Deliver</h3>
+            <p class="step-desc">Professional editing, color grading, and delivery — faster than you expect.</p>
+          </div>
+          <span class="step-arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PRICING ═══════════════════ -->
+  <section id="pricing-section" class="pricing-section">
+    <div class="pricing-header">
+      <span class="eyebrow">INVESTMENT</span>
+      <h2 class="section-headline">CHOOSE YOUR<br/>PACKAGE</h2>
+      <p class="section-body">Transparent pricing. No hidden fees. Every package includes professional editing and digital delivery.</p>
+    </div>
+    <div class="pricing-grid">
+      <!-- Starter -->
+      <div class="pricing-card glass-dark-card">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-price">₹15,999</div>
+        <div class="pricing-period">per shoot</div>
+        <p class="pricing-desc">Perfect for intimate celebrations and personal portraits.</p>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Up to 4 hours coverage</li>
+          <li><span class="check">✓</span> 1 Photographer</li>
+          <li><span class="check">✓</span> 100+ Edited Photos</li>
+          <li><span class="check">✓</span> Digital Delivery</li>
+          <li><span class="check">✓</span> Online Gallery</li>
+          <li><span class="check dim">✓</span> Basic Color Correction</li>
+        </ul>
+        <button class="pricing-btn">Get Started →</button>
+      </div>
+      <!-- Professional -->
+      <div class="pricing-card pricing-featured glass-dark-card">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-tier">Professional</div>
+        <div class="pricing-price">₹39,999</div>
+        <div class="pricing-period">per shoot</div>
+        <p class="pricing-desc">Complete coverage for your special day with premium deliverables.</p>
+        <ul class="pricing-features">
+          <li><span class="check gold">✓</span> Up to 8 hours coverage</li>
+          <li><span class="check gold">✓</span> 2 Photographers</li>
+          <li><span class="check gold">✓</span> 300+ Edited Photos</li>
+          <li><span class="check gold">✓</span> Highlight Reel (3 min)</li>
+          <li><span class="check gold">✓</span> Premium Photo Album</li>
+          <li><span class="check gold">✓</span> Drone Coverage</li>
+          <li><span class="check gold">✓</span> Same-day Preview</li>
+        </ul>
+        <button class="pricing-btn pricing-btn-gold">Book Now →</button>
+      </div>
+      <!-- Elite -->
+      <div class="pricing-card glass-dark-card">
+        <div class="pricing-tier">Elite</div>
+        <div class="pricing-price">₹89,999</div>
+        <div class="pricing-period">per event</div>
+        <p class="pricing-desc">The ultimate premium experience for grand celebrations.</p>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Full Day Coverage</li>
+          <li><span class="check">✓</span> 3 Photographers + Videographer</li>
+          <li><span class="check">✓</span> Unlimited Edited Photos</li>
+          <li><span class="check">✓</span> Cinematic Film (15 min)</li>
+          <li><span class="check">✓</span> Premium Leather Album</li>
+          <li><span class="check">✓</span> Drone + Crane Shots</li>
+          <li><span class="check">✓</span> Same-day Edits</li>
+          <li><span class="check">✓</span> Pre-wedding Shoot Included</li>
+          <li><span class="check">✓</span> Priority Delivery</li>
+        </ul>
+        <button class="pricing-btn">Go Elite →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ APP PROMO ═══════════════════ -->
+  <section id="app-section" class="app-section">
+    <div class="app-inner">
+      <div class="app-text">
+        <span class="eyebrow">DOWNLOAD THE APP</span>
+        <h2 class="section-headline">TIME ON ME<br/>IN YOUR<br/>POCKET</h2>
+        <p class="section-body">Book shoots, track progress, download your photos, and chat with your photographer — all from your phone.</p>
+        <div class="app-buttons">
+          <button class="app-store-btn">
+            <span class="app-store-icon">▶</span>
+            <div class="app-store-text">
+              <span class="app-store-small">Get it on</span>
+              <span class="app-store-name">Google Play</span>
+            </div>
+          </button>
+          <button class="app-store-btn">
+            <span class="app-store-icon"></span>
+            <div class="app-store-text">
+              <span class="app-store-small">Download on the</span>
+              <span class="app-store-name">App Store</span>
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="app-features-grid">
+        <div class="app-feature glass-dark-card">
+          <span class="app-feature-icon">📱</span>
+          <h4 class="app-feature-title">Easy Booking</h4>
+          <p class="app-feature-desc">Book any shoot in under 30 seconds</p>
+        </div>
+        <div class="app-feature glass-dark-card">
+          <span class="app-feature-icon">📸</span>
+          <h4 class="app-feature-title">Live Gallery</h4>
+          <p class="app-feature-desc">See your photos as they're edited</p>
+        </div>
+        <div class="app-feature glass-dark-card">
+          <span class="app-feature-icon">🔔</span>
+          <h4 class="app-feature-title">Real-time Updates</h4>
+          <p class="app-feature-desc">Get notified at every stage</p>
+        </div>
+        <div class="app-feature glass-dark-card">
+          <span class="app-feature-icon">⬇️</span>
+          <h4 class="app-feature-title">Quick Download</h4>
+          <p class="app-feature-desc">Download hi-res photos instantly</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer id="site-footer" class="site-footer">
+    <div class="footer-bg-ball"></div>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="#hero-section" class="footer-logo-wrap" aria-label="TIME ON ME Home">
+            <img src="/logo-dark.png" alt="TIME ON ME Photography" class="footer-logo-img" />
+          </a>
+          <p class="footer-tagline">CAPTURING YOUR MOMENTS</p>
+          <p class="footer-desc">Premium photography services. Capturing timeless stories, ceremonies, and milestones since 2020.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-pill">𝕏 Twitter</a>
+            <a href="#" class="social-pill">▶ Instagram</a>
+            <a href="#" class="social-pill">in LinkedIn</a>
+            <a href="#" class="social-pill">▶ YouTube</a>
+          </div>
+        </div>
+        <!-- Links -->
+        <div class="footer-links-grid">
+          <div class="footer-link-col">
+            <span class="footer-col-title">Services</span>
+            <a href="#">Wedding Photography</a>
+            <a href="#">Pre-Wedding Shoots</a>
+            <a href="#">Birthday & Events</a>
+            <a href="#">Product Photography</a>
+          </div>
+          <div class="footer-link-col">
+            <span class="footer-col-title">Company</span>
+            <a href="#">About Us</a>
+            <a href="#">Our Team</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Testimonials</a>
+          </div>
+          <div class="footer-link-col">
+            <span class="footer-col-title">Support</span>
+            <a href="#">Contact</a>
+            <a href="#">FAQs</a>
+            <a href="#">Booking Policy</a>
+            <a href="#">Careers</a>
+          </div>
+        </div>
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+          <div class="newsletter-card">
+            <h4 class="newsletter-title">Stay in the Frame</h4>
+            <p class="newsletter-desc">Get updates on our latest shoots, offers, and tips delivered to your inbox.</p>
+            <div class="newsletter-form">
+              <input type="email" placeholder="your@email.com" class="newsletter-input" />
+              <button class="newsletter-btn">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <span>© 2026 TIME ON ME</span>
+          <a href="#">Privacy</a>
+          <span>·</span>
+          <a href="#">Terms</a>
+          <span>·</span>
+          <span class="developer-credit">Developed by <strong>Sadiq</strong></span>
+        </div>
+        <div class="footer-rating">
+          <span class="footer-rating-stars">★★★★★</span>
+          <span>500+ Happy Clients</span>
+        </div>
+        <div class="city-ticker">
+          <div class="city-ticker-track">
+            <span>DELHI · MUMBAI · BANGALORE · HYDERABAD · CHENNAI · KOLKATA · PUNE · JAIPUR · GOA · UDAIPUR · </span>
+            <span>DELHI · MUMBAI · BANGALORE · HYDERABAD · CHENNAI · KOLKATA · PUNE · JAIPUR · GOA · UDAIPUR · </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════ FLOATING WHATSAPP ═══════════════════ -->
+  <a href="https://wa.me/?text=Hi%20Time%20On%20Me%20Photography,%20I%20would%20like%20to%20inquire%20about%20a%20shoot" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="Chat on WhatsApp"
+     id="whatsapp-btn">
+    <div class="whatsapp-tooltip">Chat with us</div>
+    <svg class="whatsapp-icon" viewBox="0 0 32 32" fill="currentColor">
+      <path d="M16 2a13.9 13.9 0 0 0-12 21L2 30l7.2-1.9A14 14 0 1 0 16 2zm0 25.5a11.5 11.5 0 0 1-5.9-1.6l-.4-.3-4.3 1.1 1.1-4.2-.3-.5a11.5 11.5 0 1 1 9.5 5.5zm6.3-8.6c-.3-.2-2-.9-2.3-1s-.6-.2-.8.2-.9 1.1-1.1 1.3-.4.3-.8.1a9.9 9.9 0 0 1-3.6-2.2 10.9 10.9 0 0 1-2.5-3.1c-.2-.4 0-.6.2-.8l.6-.7a2.7 2.7 0 0 0 .4-.7.8.8 0 0 0 0-.8c-.1-.2-.8-2-1.1-2.7s-.6-.6-.8-.6h-.7a1.4 1.4 0 0 0-1 .5 4.3 4.3 0 0 0-1.3 3.2 7.5 7.5 0 0 0 1.6 4 17.2 17.2 0 0 0 6.6 5.8c2.4 1 2.9.9 3.5.8a3 3 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.2-.4-.3-.7-.4z"/>
+    </svg>
+  </a>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
