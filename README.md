@@ -1,4 +1,4 @@
-# time-on-me-photography
+# TIME-ON-ME-studio-page-
 
 Interactive 3D Photography Showcase Website featuring immersive Three.js camera interactions, GSAP animations, and modern web aesthetics.
 
@@ -28,8 +28,8 @@ Interactive 3D Photography Showcase Website featuring immersive Three.js camera 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/SHAIKSADIQ-UI/time-on-me-photography.git
-   cd time-on-me-photography
+   git clone https://github.com/SHAIKSADIQ-UI/TIME-ON-ME-studio-page-.git
+   cd TIME-ON-ME-studio-page-
    ```
 
 2. Install dependencies:
